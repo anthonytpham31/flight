@@ -2,8 +2,8 @@ import templateUrl from './app.component.html'
 
 /* @ngInject */
 class AppController {
-  constructor (userstatusservice) {
-    this.userstatusservice = userstatusservice
+  constructor ($log) {
+    $log.debug('Login Injected Here')
   }
 }
 

@@ -1,0 +1,60 @@
+<form class="" method="POST">
+
+    <div layout="row">
+        <md-input-container flex="40" layout-align="center center" style="min-height: 5px">
+            <label>Username</label>
+            <input
+            required name="username"
+            ng-model="$newuserCtrl.username">
+        </md-input-container>
+
+        <md-input-container flex="40" layout-align="center center" style="min-height: 5px">
+            <label>Password</label>
+            <input
+            required name="password"
+            ng-model="$newuserCtrl.password"
+            type="password">
+        </md-input-container>
+    </div>
+
+    <div layout="row">
+        <md-input-container flex="40" layout-align="center center" style="min-height: 5px">
+            <label>First name</label>
+            <input
+            name="firstName"
+            ng-model="$newuserCtrl.firstName">
+        </md-input-container>
+
+        <md-input-container flex="40" layout-align="center center" style="min-height: 5px">
+            <label>Last name</label>
+            <input
+            name="lastName"
+            ng-model="$newuserCtrl.lastName">
+        </md-input-container>
+    </div>
+
+    <div layout="row">
+
+        <md-input-container flex="40">
+            <label>Email</label>
+            <input
+            ng-model="$newuserCtrl.email"
+            type="email">
+        </md-input-container>
+
+        <md-input-container flex="40">
+            <label>Phone</label>
+            <input
+            ng-model="$newuserCtrl.phone"
+            type="text">
+        </md-input-container>
+
+    </div>
+
+    <div layout="row" layout-sm="column" layout-align="start end" layout-margin>
+        <md-button
+        ng-click="$newuserCtrl.postUser()"
+        class="md-raised md-primary">
+        Register</md-button>
+    </div>
+</form>
