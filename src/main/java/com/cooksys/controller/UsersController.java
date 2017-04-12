@@ -19,7 +19,7 @@ import com.cooksys.service.UsersService;
 @RequestMapping("users")
 public class UsersController {
 
-	@Autowired
+	//@Autowired
 	private UsersService usersService;
 
 	@CrossOrigin

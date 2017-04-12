@@ -12,10 +12,10 @@ import com.cooksys.repository.UsersRepository;
 
 public class UsersService {
 	
-	@Autowired
+	//@Autowired
 	private UsersMapper usersMapper;
 	
-	@Autowired
+	//@Autowired
 	private UsersRepository usersRepository;
 	
 	public UsersDtoOutput getUsersByName(String username) {
