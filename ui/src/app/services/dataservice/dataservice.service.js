@@ -1,12 +1,13 @@
+/* @ngInject */
 export const dataservice = class {
-  constructor ($http) {
+  constructor ($http, apiUrl) {
     this.$http = $http
-    this.ipAddress = 'localhost:8000'
+    this.apiUrl = apiUrl
   }
   // --------------------------------------------------user services
 
   getUserByName (username) {
-    return this.$http.get(`http://${this.ipAddress}/api/users/${username}`)
+    return this.$http.get(`http://${this.apiUrl}/users/${username}`)
     .then((response) => {
       console.log('success getUsers', response.data)
       return response.data
@@ -16,7 +17,7 @@ export const dataservice = class {
   }
 
   postUser (userObject) {
-    return this.$http.post(`http://${this.ipAddress}/api/users`, userObject)
+    return this.$http.post(`http://${this.apiUrl}/users`, userObject)
     .then((response) => {
       console.log('success postTweet', response.data)
       return response.data
@@ -26,7 +27,7 @@ export const dataservice = class {
   }
 
   updateUser (username, userObject) {
-    return this.$http.patch(`http://${this.ipAddress}/api/users/${username}`, userObject)
+    return this.$http.patch(`http://${this.apiUrl}/users/${username}`, userObject)
     .then((response) => {
       console.log('success updateUser', response.data)
       return response.data
@@ -36,7 +37,7 @@ export const dataservice = class {
   }
 
   deleteUser (username) {
-    return this.$http.delete(`http://${this.ipAddress}/api/users/${username}`)
+    return this.$http.delete(`http://${this.apiUrl}/users/${username}`)
     .then((response) => {
       console.log('success deleteUser', response.data)
       return response.data

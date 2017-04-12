@@ -1,6 +1,7 @@
 package com.cooksys.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.cooksys.dto.UsersDtoCreate;
 import com.cooksys.dto.UsersDtoOutput;
@@ -10,14 +11,20 @@ import com.cooksys.pojo.Credentials;
 import com.cooksys.pojo.Profile;
 import com.cooksys.repository.UsersRepository;
 
+@Service
 public class UsersService {
 	
-	//@Autowired
 	private UsersMapper usersMapper;
 	
-	//@Autowired
 	private UsersRepository usersRepository;
 	
+	@Autowired
+	public UsersService(UsersMapper usersMapper, UsersRepository usersRepository) {
+		super();
+		this.usersMapper = usersMapper;
+		this.usersRepository = usersRepository;
+	}
+
 	public UsersDtoOutput getUsersByName(String username) {
 		return usersMapper.toUsersDtoOutput(usersRepository.findByCredentialsUsername(username));
 	}

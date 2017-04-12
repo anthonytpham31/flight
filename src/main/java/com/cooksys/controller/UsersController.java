@@ -19,8 +19,13 @@ import com.cooksys.service.UsersService;
 @RequestMapping("users")
 public class UsersController {
 
-	//@Autowired
 	private UsersService usersService;
+	
+	@Autowired
+	public UsersController(UsersService usersService) {
+		super();
+		this.usersService = usersService;
+	}
 
 	@CrossOrigin
 	@RequestMapping(value = "/{username}", method = RequestMethod.GET)
