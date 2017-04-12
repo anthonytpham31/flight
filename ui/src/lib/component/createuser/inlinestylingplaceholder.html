@@ -1,0 +1,110 @@
+<div class="container">
+  <div layout="column" flex id="content" role="main" style="padding-top: 50px;">
+      <md-content layout="vertical" flex id="content">
+        <div layout="row" layout-align="center center" layout-fill>
+
+          <md-whiteframe class="md-whiteframe-10dp" layout="column" flex="30" layout-padding>
+            <!-- <md-content md-theme="docs-dark"> -->
+            <form class="" method="post">
+            <div layout="row">
+              <md-input-container flex="50">
+                <label>Username</label>
+                <input
+                required name="username"
+                ng-model="createUser.username">
+                <div ng-messages="user.username.$error">
+                  <div ng-message="required">This is required.</div>
+                </div>
+              </md-input-container>
+
+            <md-input-container flex="50">
+                <label>Password</label>
+                <input required name="password" ng-model="createUser.password" type="password">
+                <div ng-messages="user.password.$error">
+                  <div ng-message="required">This is required.</div>
+                </div>
+              </md-input-container>
+            </div>
+
+            <div layout="row">
+              <md-input-container flex="50">
+                <label>First name</label>
+                <input
+                name="firstName"
+                ng-model="createUser.firstName">
+              </md-input-container>
+
+              <md-input-container flex="50">
+                <label>Last name</label>
+                <input
+                name="lastName"
+                ng-model="createUser.lastName">
+              </md-input-container>
+            </div>
+
+              <md-input-container>
+                <label>Email</label>
+                <input
+                ng-model="createUser.email"
+                type="email">
+              </md-input-container>
+
+              <md-input-container>
+                <label>Phone</label>
+                <input
+                ng-model="createUser.phoneNumber"
+                type="text">
+              </md-input-container>
+              <br>
+
+              <md-input-container layout-align="center center">
+                <div layout="row" layout-sm="column" layout-margin>
+                  <md-button
+                  ng-click='createUser.postUser()'
+                  class="md-raised md-primary"
+                  flex="50"
+                  flex-sm="100">
+                  Register</md-button>
+                </div>
+              </md-input-container>
+            </form>
+              <p>{{createUser.postUser}}</p>
+
+
+            <!-- </md-content> -->
+          </md-whiteframe>
+
+          <md-whiteframe class="md-whiteframe-10dp" layout="column" flex="30" style="margin: 100px;">
+            <!-- <md-content md-theme="docs-dark"> -->
+              <div layout="row">
+
+              <md-input-container flex="50">
+                <label>Username</label>
+                <input required name="username" ng-model="user.username">
+                <div ng-messages="user.username.$error">
+                  <div ng-message="required">This is required.</div>
+                </div>
+              </md-input-container>
+
+            <md-input-container flex="50">
+                <label>Password</label>
+                <input required name="password" ng-model="user.password" type="password">
+                <div ng-messages="user.password.$error">
+                  <div ng-message="required">This is required.</div>
+                </div>
+              </md-input-container>
+
+              <md-input-container layout-align="center center">
+                <div layout="row" layout-sm="column" layout-margin>
+                  <md-button class="md-raised md-primary" flex="50" flex-sm="100">Login</md-button>
+                </div>
+              </md-input-container>
+
+            </div>
+            <!-- </md-content> -->
+          </md-whiteframe>
+
+        </div>
+      </md-content>
+    </div>
+</div>

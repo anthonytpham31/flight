@@ -1,0 +1,88 @@
+<div layout="column" layout-align="center center" class="text-center">
+    <form class="" method="POST">
+        <div>
+            <h1>Squawker</h1>
+        </div>
+        <div layout="row">
+
+            <md-input-container flex="40" layout-align="center center" style="min-height: 5px">
+                <label>Username</label>
+                <input required name="username" ng-model="createUser.username">
+                <div ng-messages="user.username.$error">
+                    <div ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container flex="40" layout-align="center center" style="min-height: 5px">
+                <label>Password</label>
+                <input required name="password" ng-model="createUser.password" type="password">
+                <div ng-messages="user.password.$error">
+                    <div ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
+        </div>
+
+        <div layout="row">
+            <md-input-container flex="40" layout-align="center center" style="min-height: 5px">
+                <label>First name</label>
+                <input name="firstName" ng-model="createUser.firstName">
+            </md-input-container>
+
+            <md-input-container flex="40" layout-align="center center" style="min-height: 5px">
+                <label>Last name</label>
+                <input name="lastName" ng-model="createUser.lastName">
+            </md-input-container>
+        </div>
+
+        <div layout="row">
+
+            <md-input-container flex="40">
+                <label>Email</label>
+                <input ng-model="createUser.email" type="email">
+            </md-input-container>
+
+            <md-input-container flex="40">
+                <label>Phone</label>
+                <input ng-model="createUser.phone" type="text">
+            </md-input-container>
+
+        </div>
+
+        <div layout="row" layout-sm="column" layout-align="start end" layout-margin>
+
+            <md-button ng-click="createUser.postUser()" class="md-raised md-primary">
+                Register</md-button>
+        </div>
+    </form>
+
+
+    <form class="" method="post">
+        <div layout="row">
+
+            <md-input-container flex="40">
+                <label>Username</label>
+                <input required name="username" ng-model="createUser.userCreds">
+                <div ng-messages="user.username.$error">
+                    <div ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container flex="40">
+                <label>Password</label>
+                <input required name="password" ng-model="createUser.passCreds" type="password">
+                <div ng-messages="user.password.$error">
+                    <div ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
+        </div>
+
+        <div layout="row">
+
+            <div layout="row" layout-sm="column" layout-align="end start" layout-margin>
+
+                <md-button ng-click="createUser.validateCreds()" class="md-raised md-primary" flex="50" flex-sm="100">
+                    Login</md-button>
+            </div>
+        </div>
+    </form>
+</div>
