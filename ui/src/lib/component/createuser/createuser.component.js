@@ -17,9 +17,9 @@ const controller = class {
   userCreds = ''
   passCreds = ''
 
-  goto () {
-    this.$state.go('feed')
-  }
+  // goto () {
+  //   this.$state.go('feed')
+  // }
 
   checkCreds () {
     const creds = {

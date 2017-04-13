@@ -1,13 +1,12 @@
-
 export const dataservice = class {
-  constructor ($http, apiUrl) {
+  constructor ($http) {
     this.$http = $http
-    this.apiUrl = apiUrl
+    this.ipAddress = 'localhost:8000'
   }
   // --------------------------------------------------user services
 
   getUserByName (username) {
-    return this.$http.get(this.apiUrl + `/users/${username}`)
+    return this.$http.get(`http://${this.ipAddress}/users/${username}`)
     .then((response) => {
       console.log('success getUsers', response.data)
       return response.data
@@ -17,7 +16,7 @@ export const dataservice = class {
   }
 
   postUser (userObject) {
-    return this.$http.post(this.apiUrl + `/users`, userObject)
+    return this.$http.post(`http://${this.ipAddress}/users`, userObject)
     .then((response) => {
       console.log('success postTweet', response.data)
       return response.data
@@ -27,7 +26,7 @@ export const dataservice = class {
   }
 
   updateUser (username, userObject) {
-    return this.$http.patch(this.apiUrl + `/users/${username}`, userObject)
+    return this.$http.patch(`http://${this.ipAddress}/users/@${username}`, userObject)
     .then((response) => {
       console.log('success updateUser', response.data)
       return response.data
@@ -37,7 +36,7 @@ export const dataservice = class {
   }
 
   deleteUser (username) {
-    return this.$http.delete(this.apiUrl + `/users/${username}`)
+    return this.$http.delete(`http://${this.ipAddress}/users/@${username}`)
     .then((response) => {
       console.log('success deleteUser', response.data)
       return response.data
