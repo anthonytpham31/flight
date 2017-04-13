@@ -1,5 +1,8 @@
 package com.cooksys.service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +27,14 @@ public class UsersService {
 		this.usersMapper = usersMapper;
 		this.usersRepository = usersRepository;
 	}
-
+	
+	public List<UsersDtoOutput> getAllUsers() {
+		return usersRepository.findAll()
+				.stream()
+				.map(usersMapper::toUsersDtoOutput)
+				.collect(Collectors.toList());
+	}
+	
 	public UsersDtoOutput getUsersByName(String username) {
 		return usersMapper.toUsersDtoOutput(usersRepository.findByCredentialsUsername(username));
 	}

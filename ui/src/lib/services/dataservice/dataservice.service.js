@@ -18,10 +18,10 @@ export const dataservice = class {
   postUser (userObject) {
     return this.$http.post(`http://${this.ipAddress}/users`, userObject)
     .then((response) => {
-      console.log('success postTweet', response.data)
+      console.log('success postUser', response.data)
       return response.data
     }, (error) => {
-      console.log('failed postTweet', error.data)
+      console.log('failed postUser', error.data)
     })
   }
 
@@ -45,4 +45,13 @@ export const dataservice = class {
     })
   }
 
+  login (credentials) {
+    return this.$http.post(`http://${this.ipAddress}/validate/login`, credentials)
+    .then((response) => {
+      console.log('success login', response.data)
+      return response.data
+    }, (error) => {
+      console.log('failed login', error.data)
+    })
+  }
 }

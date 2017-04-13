@@ -1,16 +1,24 @@
 import templateUrl from './map.template.html'
 
-/* @ngInject */
-class MapController {
-  zoom = 7
-  center = [35.5175, -86.5804]
-  markers = []
-  paths = []
-
-  constructor (mapservice, locations) {
+const controller = class {
+  constructor (mapservice) {
     this.mapservice = mapservice
 
     // add markers from an angular constant
+    const locations = {
+      memphis: {
+        latitude: 35.1495,
+        longitude: -90.0490
+      },
+      nashville: {
+        latitude: 36.1627,
+        longitude: -86.7816
+      },
+      knoxville: {
+        latitude: 35.9606,
+        longitude: -83.9207
+      }
+    }
     const { memphis, nashville, knoxville } = locations
     const markers = [memphis, nashville, knoxville]
 
@@ -30,6 +38,10 @@ class MapController {
         this.addPath(knoxville, chattanooga, '#FF3388')
       })
   }
+  zoom = 7
+  center = [35.5175, -86.5804]
+  markers = []
+  paths = []
 
   addMarker ({ latitude, longitude }) {
     this.markers.push({
@@ -49,8 +61,8 @@ class MapController {
 
 }
 
-export default {
+export const flightMap = {
   templateUrl,
-  controller: MapController,
+  controller,
   controllerAs: '$mapCtrl'
 }

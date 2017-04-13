@@ -1,5 +1,7 @@
 package com.cooksys.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,7 @@ import com.cooksys.service.UsersService;
 
 @RestController
 @RequestMapping("users")
+@CrossOrigin
 public class UsersController {
 
 	private UsersService usersService;
@@ -26,7 +29,19 @@ public class UsersController {
 		super();
 		this.usersService = usersService;
 	}
-
+	
+	@RequestMapping(method = RequestMethod.GET)
+	public List<UsersDtoOutput> getAllUsers(HttpServletResponse response) {
+        List<UsersDtoOutput> output =  usersService.getAllUsers();
+        if (output != null) {
+            response.setStatus(HttpServletResponse.SC_OK);
+            return output;
+        } else {
+            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            return null;
+        }
+    }
+	
 	@CrossOrigin
 	@RequestMapping(value = "/{username}", method = RequestMethod.GET)
 	public UsersDtoOutput getUsersByName(@RequestParam(value = "username") String username,

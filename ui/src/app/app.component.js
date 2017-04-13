@@ -10,8 +10,8 @@ const controller =
     styles = styles
 }
 
-export const flight = {
+export const flightApp = {
   templateUrl,
   controller,
-  controllerAs: 'app'
+  controllerAs: 'flightApp'
 }
