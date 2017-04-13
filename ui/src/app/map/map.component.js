@@ -7,31 +7,39 @@ class MapController {
   markers = []
   paths = []
 
-  constructor ($map, locations, $interval) {
+  constructor ($map, $interval) {
     this.$map = $map
     this.$interval = $interval
     this.flightsInfo = ''
-    this.setFlights()
+    // this.setFlights()
 
+    // Old Constructor Code for Placeholder Flights ========================
     // add markers from an angular constant
-    const { memphis, nashville, knoxville } = locations
-    const markers = [memphis, nashville, knoxville]
-
-    markers.forEach(marker => this.addMarker(marker))
-
-    // add paths manually
-    const paths = [
-      [memphis, nashville, '#CC0099'],
-      [nashville, knoxville, '#AA1100']
-    ]
-
-    paths.forEach(args => this.addPath(...args))
-
-    // add path from webservice
-    $map.getMarkerByCityName('Chattanooga')
-      .then(chattanooga => {
-        this.addPath(knoxville, chattanooga, '#FF3388')
+    // const { memphis, nashville, knoxville } = locations
+    // const markers = [memphis, nashville, knoxville]
+    //
+    // markers.forEach(marker => this.addMarker(marker))
+    //
+    // // add paths manually
+    // const paths = [
+    //   [memphis, nashville, '#CC0099'],
+    //   [nashville, knoxville, '#AA1100']
+    // ]
+    //
+    // paths.forEach(args => this.addPath(...args))
+    //
+    // // add path from webservice
+    // $map.getMarkerByCityName('Chattanooga')
+    //   .then(chattanooga => {
+    //     this.addPath(knoxville, chattanooga, '#FF3388')
+    //   })
+    this.$interval(() => {
+      $map.getAvailableFlights()
+      .then((value) => {
+        this.flightsInfo = value
+        console.log(value)
       })
+    }, 5000)
   }
 
   addMarker ({ latitude, longitude }) {
@@ -49,16 +57,13 @@ class MapController {
       geodesic: true
     })
   }
-  setFlights () {
-    this.$map.getAvailableFlights()
-    .then(value => {
-      this.flightsInfo = value
-      console.log(value)
-    })
-  }
-  // $interval(function () {
-  //       this.$map.getAvailableFlights()
-  //   }, 1000)
+  // setFlights () {
+  //   this.$map.getAvailableFlights()
+  //   .then(value => {
+  //     this.flightsInfo = value
+  //     console.log(value)
+  //   })
+  // }
 }
 
 export default {
