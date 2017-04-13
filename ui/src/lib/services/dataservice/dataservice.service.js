@@ -3,7 +3,6 @@ export const dataservice = class {
     this.$http = $http
     this.ipAddress = 'localhost:8000'
   }
-  // --------------------------------------------------user services
 
   getUserByName (username) {
     return this.$http.get(`http://${this.ipAddress}/users/username`, { params: { username } })

@@ -19,17 +19,19 @@ public class LocationController {
 	
 	@Autowired
 	private LocationService locationService;
-
+	
 	@RequestMapping
 	public List<Location> get() {
 		return locationService.getAll();
 	}
-
+	
+	@CrossOrigin
 	@RequestMapping("/{id}")
 	public Location get(@PathVariable("id") long id) {
 		return locationService.get(id);
 	}
 	
+	@CrossOrigin
 	@RequestMapping("/name")
 	public Location get(@RequestParam("name") String cityName)
 	{

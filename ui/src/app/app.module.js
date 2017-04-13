@@ -6,15 +6,16 @@ import ngMaterial from 'angular-material'
 import ngMessages from 'angular-messages'
 import uiRouter from 'angular-ui-router'
 
+import flightMap from './map/map.module'
 import apiUrl from './api.url'
 import { flightApp } from './app.component.js'
 
 import { createUser } from 'component/createuser'
 import { profile } from 'component/profile'
-import { flightMap } from 'component/map'
+// import { flightMap } from 'component/map'
 import { navBar } from 'component/navbar'
 
-import { mapservice } from 'services/mapservice'
+// import { mapservice } from 'services/mapservice'
 import { dataservice } from 'services/dataservice'
 import { userstatusservice } from 'services/userstatusservice'
 
@@ -29,17 +30,18 @@ export default
       ngAnimate,
       ngMaterial,
       ngMessages,
-      uiRouter
+      uiRouter,
+      flightMap
     ])
     .constant('apiUrl', apiUrl)
     .component('flightApp', flightApp)
 
-    .component('flightMap', flightMap)
+    // .component('flightMap', flightMap)
     .component('createUser', createUser)
     .component('profile', profile)
     .component('navBar', navBar)
 
-    .service('mapservice', mapservice)
+    // .service('mapservice', mapservice)
     .service('dataservice', dataservice)
     .service('userstatusservice', userstatusservice)
 
