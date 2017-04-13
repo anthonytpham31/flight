@@ -11,7 +11,7 @@ import appComponent from './app.component.js'
 
 import { createUser } from './component/createuser'
 import { profile } from './component/profile'
-// import { flightMap } from './component/map'
+import { flightMap } from './component/map'
 
 import { dataservice } from './services/dataservice'
 import { userstatusservice } from './services/userstatusservice'
@@ -32,7 +32,7 @@ export default
     .constant('apiUrl', apiUrl)
     .component('flightApp', appComponent)
 
-    // .component('flightMap', flightMap)
+    .component('flightMap', flightMap)
     .component('createUser', createUser)
     .component('profile', profile)
 
