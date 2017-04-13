@@ -1,5 +1,6 @@
-import templateUrl from './map.template.html'
+import templateUrl from './map.template'
 
+/* @ngInject */
 const controller = class {
   constructor (mapservice) {
     this.mapservice = mapservice

@@ -15,6 +15,6 @@ export const routes =
     .state({
       name: 'flights',
       url: '/flights',
-      component: 'map'
+      component: 'flightMap'
     })
   }

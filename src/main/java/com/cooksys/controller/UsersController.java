@@ -43,9 +43,8 @@ public class UsersController {
     }
 	
 	@CrossOrigin
-	@RequestMapping(value = "{username}", method = RequestMethod.GET)
-	public UsersDtoOutput getUsersByName(@RequestParam(value = "username") String username,
-			HttpServletResponse response) {
+	@RequestMapping(value = "/username", method = RequestMethod.GET)
+	public UsersDtoOutput getUsersByName(@RequestParam(value = "username") String username, HttpServletResponse response) {
 		UsersDtoOutput output = usersService.getUsersByName(username);
 		if (output != null) {
 			response.setStatus(HttpServletResponse.SC_OK);
@@ -70,7 +69,7 @@ public class UsersController {
 	}
 
 	@CrossOrigin
-	@RequestMapping(value = "{username}", method = RequestMethod.PATCH)
+	@RequestMapping(value = "/{username}", method = RequestMethod.PATCH)
 	public UsersDtoOutput patch(@PathVariable String username, @RequestBody UsersDtoCreate usersDto,
 			HttpServletResponse httpResponse) {
 		UsersDtoOutput output = usersService.patch(username, usersDto);
@@ -84,7 +83,7 @@ public class UsersController {
 	}
 
 	@CrossOrigin
-	@RequestMapping(value = "{username}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/{username}", method = RequestMethod.DELETE)
 	public UsersDtoOutput delete(@PathVariable String username, HttpServletResponse httpResponse) {
 		UsersDtoOutput output = usersService.deactivate(username);
 		if (output != null) {

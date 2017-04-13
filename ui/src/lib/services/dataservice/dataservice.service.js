@@ -6,7 +6,7 @@ export const dataservice = class {
   // --------------------------------------------------user services
 
   getUserByName (username) {
-    return this.$http.get(`http://${this.ipAddress}/users/${username}`)
+    return this.$http.get(`http://${this.ipAddress}/users/username`, { params: { username } })
     .then((response) => {
       console.log('success getUsers', response.data)
       return response.data

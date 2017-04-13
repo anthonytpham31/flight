@@ -1,8 +1,12 @@
 package com.cooksys.entity;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.cooksys.pojo.Credentials;
@@ -21,6 +25,9 @@ public class Users {
 	private Credentials credentials;
 	
 	private boolean isActive = true;
+
+	@OneToMany(mappedBy = "passenger")
+	private List<Itinerary> pastFlights;
 
 	public Long getId() {
 		return id;
@@ -53,7 +60,15 @@ public class Users {
 	public void setActive(boolean isActive) {
 		this.isActive = isActive;
 	}
+	
+	public List<Itinerary> getPastFlights() {
+		return pastFlights;
+	}
 
+	public void setPastFlights(List<Itinerary> pastFlights) {
+		this.pastFlights = pastFlights;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
