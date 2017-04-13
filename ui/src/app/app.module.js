@@ -31,6 +31,7 @@ export default
       ngMaterial,
       ngMessages,
       uiRouter,
+
       flightMap
     ])
     .constant('apiUrl', apiUrl)

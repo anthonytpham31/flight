@@ -17,6 +17,7 @@ const devtool =
 
 // what are the primary "main methods" of our app?
 const entry = {
+  vendor: './src/vendor.js',
   // we only have one right now, main.js, which loads
   // our app.module, bootstrapping our app
   main: [
