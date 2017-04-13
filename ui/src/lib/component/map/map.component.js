@@ -58,7 +58,6 @@ const controller = class {
       geodesic: true
     })
   }
-
 }
 
 export const flightMap = {

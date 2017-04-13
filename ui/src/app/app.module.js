@@ -12,7 +12,9 @@ import { flightApp } from './app.component.js'
 import { createUser } from 'component/createuser'
 import { profile } from 'component/profile'
 import { flightMap } from 'component/map'
+import { navBar } from 'component/navbar'
 
+import { mapservice } from 'services/mapservice'
 import { dataservice } from 'services/dataservice'
 import { userstatusservice } from 'services/userstatusservice'
 
@@ -35,7 +37,9 @@ export default
     .component('flightMap', flightMap)
     .component('createUser', createUser)
     .component('profile', profile)
+    .component('navBar', navBar)
 
+    .service('mapservice', mapservice)
     .service('dataservice', dataservice)
     .service('userstatusservice', userstatusservice)
 

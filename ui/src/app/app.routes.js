@@ -12,4 +12,9 @@ export const routes =
       url: '/profile',
       component: 'profile'
     })
+    .state({
+      name: 'flights',
+      url: '/flights',
+      component: 'map'
+    })
   }

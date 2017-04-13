@@ -1,7 +1,7 @@
 <div layout="column" layout-align="center center" class="text-center">
     <form class="" method="POST">
         <div>
-            <h1>Squawker</h1>
+            <h1>Register User</h1>
         </div>
         <div layout="row">
 
@@ -38,7 +38,7 @@
 
             <md-input-container flex="40">
                 <label>Email</label>
-                <input ng-model="createUser.email" type="email">
+                <input required name="email" ng-model="createUser.email" type="email">
             </md-input-container>
 
             <md-input-container flex="40">
@@ -58,6 +58,9 @@
 
 
     <form class="" method="post">
+      <div>
+          <h1>Login</h1>
+      </div>
         <div layout="row">
 
             <md-input-container flex="40">

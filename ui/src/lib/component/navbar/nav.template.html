@@ -1,0 +1,16 @@
+<md-toolbar layout="row" class="md-whiteframe-z1" layout-align="space-between center">
+  <div layout="row" layout-align="start center">
+    <h1>Flight Booker</h1>
+  </div>
+
+  <!-- Only show on homepage -->
+  <div layout="row" layout-align="end center">
+    <md-button ng-show='navBar.userstatusservice.isLoggedIn' ng-click='navBar.goToProfile()' class="md-raised" aria-label="Learn More" layout-align="end">
+      Profile
+    </md-button>
+
+    <md-button ng-show='navBar.userstatusservice.isLoggedIn' ng-click='navBar.logOut()' class="md-raised" aria-label="Learn More" layout-align="end center">
+      Log off
+    </md-button>
+  </div>
+</md-toolbar>
