@@ -11,8 +11,8 @@ const controller = class {
     this.$state.go('profile')
   }
 
-  goToFeed () {
-    this.$state.go('feed')
+  goToFlights () {
+    this.$state.go('flights')
   }
 
   goToLogin () {

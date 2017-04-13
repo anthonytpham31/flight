@@ -7,8 +7,11 @@ class MapController {
   markers = []
   paths = []
 
-  constructor ($map, locations) {
+  constructor ($map, locations, $interval) {
     this.$map = $map
+    this.$interval = $interval
+    this.flightsInfo = ''
+    this.setFlights()
 
     // add markers from an angular constant
     const { memphis, nashville, knoxville } = locations
@@ -46,6 +49,16 @@ class MapController {
       geodesic: true
     })
   }
+  setFlights () {
+    this.$map.getAvailableFlights()
+    .then(value => {
+      this.flightsInfo = value
+      console.log(value)
+    })
+  }
+  // $interval(function () {
+  //       this.$map.getAvailableFlights()
+  //   }, 1000)
 }
 
 export default {

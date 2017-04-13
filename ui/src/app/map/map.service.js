@@ -7,8 +7,13 @@ class MapService {
 
   getMarkerByCityName (name) {
     return this.$http
-      .get(`${this.apiUrl}/location/name`, { params: { name } })
+      .get(`http://${this.apiUrl}/location/name`, { params: { name } })
       .then(result => result.data)
+  }
+
+  getAvailableFlights () {
+    return this.$http
+    .get(`http://${this.apiUrl}/flights`)
   }
 }
 

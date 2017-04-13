@@ -5,6 +5,9 @@
 
   <!-- Only show on homepage -->
   <div layout="row" layout-align="end center">
+    <md-button ng-show='navBar.userstatusservice.isLoggedIn' ng-click='navBar.goToFlights()' class="md-raised" aria-label="Learn More" layout-align="end">
+      Flights
+    </md-button>
     <md-button ng-show='navBar.userstatusservice.isLoggedIn' ng-click='navBar.goToProfile()' class="md-raised" aria-label="Learn More" layout-align="end">
       Profile
     </md-button>
